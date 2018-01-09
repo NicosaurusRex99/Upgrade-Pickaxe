@@ -204,27 +204,38 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK.registry;
+package naturix.UP.registry;
 
-import naturix.TDK.items.HotKnife;
-import naturix.TDK.items.IronKnife;
+import naturix.UP.items.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModItems 
 {
-	@GameRegistry.ObjectHolder("thousanddegreeknife:ironknife")
-    public static IronKnife ironknife;
-	@GameRegistry.ObjectHolder("thousanddegreeknife:thousanddegreeknife")
-    public static HotKnife hotknife;
+	@GameRegistry.ObjectHolder("upgradedpickaxe:iron")
+    public static Iron iron;
+	@GameRegistry.ObjectHolder("upgradedpickaxe:gold")
+    public static Gold gold;
+	@GameRegistry.ObjectHolder("upgradedpickaxe:wood")
+    public static Wood wood;
+	@GameRegistry.ObjectHolder("upgradedpickaxe:stone")
+    public static Stone stone;
+	@GameRegistry.ObjectHolder("upgradedpickaxe:diamond")
+    public static Diamond diamond;
+	@GameRegistry.ObjectHolder("upgradedpickaxe:stick")
+    public static DoubleEndedStick stick;
 
 	
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
-		ironknife.initModel();
-		hotknife.initModel();
-}
+		iron.initModel();
+		gold.initModel();
+		stone.initModel();
+		wood.initModel();
+		diamond.initModel();
+		stick.initModel();
+		}
 	public static void initOreDict() {
 		
 	}

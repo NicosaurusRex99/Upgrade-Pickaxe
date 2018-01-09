@@ -204,9 +204,9 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK;
+package naturix.UP;
 
-import naturix.TDK.proxy.CommonProxy;
+import naturix.UP.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 
 public class Config {

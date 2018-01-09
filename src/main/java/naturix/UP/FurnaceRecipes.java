@@ -204,16 +204,12 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK;
-
-import naturix.TDK.registry.ModItems;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+package naturix.UP;
 
 public class FurnaceRecipes {
 
 	public static void init() 
 {
-	GameRegistry.addSmelting(ModItems.ironknife, new ItemStack(ModItems.hotknife), 0f);
+	//GameRegistry.addSmelting(ModItems.ironknife, new ItemStack(ModItems.hotknife), 0f);
 }
 }

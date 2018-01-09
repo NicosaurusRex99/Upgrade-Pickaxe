@@ -204,81 +204,29 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK.registry;
+package naturix.UP.items;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ContainerDispenser;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntityLockableLoot;
-import net.minecraft.util.NonNullList;
+import naturix.UP.UpgradedPickaxe;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TileEntityCustom extends TileEntityLockableLoot {
+public class Diamond extends ItemPickaxe {
 
-	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack> withSize(2, ItemStack.EMPTY);
+    public Diamond() {
+    	super(UpgradedPickaxe.DiamondMaterial);
+        this.setRegistryName("diamond");
+        this.setUnlocalizedName(UpgradedPickaxe.MODID + ".diamond");
+        setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
+        setMaxStackSize(1);
+        setMaxDamage(13000001);
+        setHarvestLevel("pickaxe", 5);
+    }
+    @SideOnly(Side.CLIENT)
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 
-	public int getSizeInventory() {
-		return 2;
 	}
-
-	public boolean isEmpty() {
-		for (ItemStack itemstack : this.stacks) {
-			if (!itemstack.isEmpty()) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	public String getName() {
-		return this.hasCustomName() ? this.customName : "container.brazier";
-	}
-
-	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
-		this.stacks = NonNullList.<ItemStack> withSize(this.getSizeInventory(), ItemStack.EMPTY);
-
-		if (!this.checkLootAndRead(compound)) {
-			ItemStackHelper.loadAllItems(compound, this.stacks);
-		}
-
-		if (compound.hasKey("CustomName", 8)) {
-			this.customName = compound.getString("CustomName");
-		}
-	}
-
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		super.writeToNBT(compound);
-
-		if (!this.checkLootAndWrite(compound)) {
-			ItemStackHelper.saveAllItems(compound, this.stacks);
-		}
-
-		if (this.hasCustomName()) {
-			compound.setString("CustomName", this.customName);
-		}
-
-		return compound;
-	}
-
-	public int getInventoryStackLimit() {
-		return 1;
-	}
-
-	public String getGuiID() {
-		return "1";
-	}
-
-	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-		this.fillWithLoot(playerIn);
-		return new ContainerDispenser(playerInventory, this);
-	}
-
-	protected NonNullList<ItemStack> getItems() {
-		return this.stacks;
-	}
-}

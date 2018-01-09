@@ -204,71 +204,29 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK;
+package naturix.UP.items;
 
-import org.apache.logging.log4j.core.Logger;
-
-import naturix.TDK.proxy.CommonProxy;
-import naturix.TDK.registry.ModItems;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import naturix.UP.UpgradedPickaxe;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = ThousandDegreeKnifeMod.MODID, version = ThousandDegreeKnifeMod.VERSION, name = ThousandDegreeKnifeMod.MOD_NAME)
-public class ThousandDegreeKnifeMod
-{
-	public static final String MODID = "thousanddegreeknife";
-    public static final String VERSION = "1.12.2.2";
-    public static final String MOD_NAME = "Thousand Degree Knife";
-    
-    @SidedProxy(clientSide = "naturix.TDK.proxy.ClientProxy", serverSide = "naturix.TDK.proxy.ServerProxy")
-    public static CommonProxy proxy;
-    public static final Item.ToolMaterial HotToolMaterial = EnumHelper.addToolMaterial("HotKnife", 99, 6142, 321, 844, 50);
-    
-    @Mod.Instance
-    public static ThousandDegreeKnifeMod instance;
+public class Iron extends ItemPickaxe {
 
-    public static org.apache.logging.log4j.Logger logger;
-    
-
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
-        proxy.preInit(event);
+    public Iron() {
+    	super(UpgradedPickaxe.IronMaterial);
+        this.setRegistryName("iron");
+        this.setUnlocalizedName(UpgradedPickaxe.MODID + ".iron");
+        setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
+        setMaxStackSize(1);
+        setMaxDamage(13000001);
+        setHarvestLevel("pickaxe", 4);
+    }
+    @SideOnly(Side.CLIENT)
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent e) {
-        proxy.init(e);
-    }
-
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-        proxy.postInit(e);
-    }
-    
-    @Mod.EventHandler
-    public void serverLoad(FMLServerStartingEvent event) {
-
-    }
-    
-    public static final CreativeTabs ThousandDegreeKnifeMod = new CreativeTabs("ThousandDegreeKnifeMod")
-    {
-
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem()
-        {
-            return new ItemStack(ModItems.hotknife);
-        }
-		
-    };
-}
+	}

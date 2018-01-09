@@ -204,14 +204,13 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK.proxy;
+package naturix.UP.proxy;
 
 import java.io.File;
 
-import naturix.TDK.Config;
-import naturix.TDK.FurnaceRecipes;
-import naturix.TDK.items.HotKnife;
-import naturix.TDK.items.IronKnife;
+import naturix.UP.items.*;
+import naturix.UP.Config;
+import naturix.UP.FurnaceRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -231,7 +230,7 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent e) 
 	{
 		File directory = e.getModConfigurationDirectory();
-		config = new Configuration(new File(directory.getPath(), "naturix/Thousand Degree Knife.cfg"));
+		config = new Configuration(new File(directory.getPath(), "naturix/Upgraded Pickaxe.cfg"));
         Config.readConfig();
             }
 
@@ -260,8 +259,12 @@ public class CommonProxy {
     }
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-    	event.getRegistry().register(new IronKnife());
-    	event.getRegistry().register(new HotKnife());	
+    	event.getRegistry().register(new Iron());
+    	event.getRegistry().register(new Gold());	
+    	event.getRegistry().register(new Diamond());
+    	event.getRegistry().register(new Wood());
+    	event.getRegistry().register(new Stone());
+    	event.getRegistry().register(new DoubleEndedStick());
     }
 
 }

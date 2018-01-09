@@ -204,24 +204,29 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.UP.proxy;
+package naturix.UP.items;
 
-import naturix.UP.registry.ModItems;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import naturix.UP.UpgradedPickaxe;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod.EventBusSubscriber(Side.CLIENT)
-public class ClientProxy extends CommonProxy {
-    @Override
-    public void preInit(FMLPreInitializationEvent e) {
-        super.preInit(e);
+public class Stone extends ItemPickaxe {
+
+    public Stone() {
+    	super(UpgradedPickaxe.StoneMaterial);
+        this.setRegistryName("stone");
+        this.setUnlocalizedName(UpgradedPickaxe.MODID + ".stone");
+        setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
+        setMaxStackSize(1);
+        setMaxDamage(13000001);
+        setHarvestLevel("pickaxe", 2);
+    }
+    @SideOnly(Side.CLIENT)
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
-    @SubscribeEvent
-    public static void registerModels(ModelRegistryEvent event) {
-    	ModItems.initModels();
-    }
-}
+	}

@@ -204,7 +204,7 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK.proxy;
+package naturix.UP.proxy;
 
 public class ServerProxy extends CommonProxy {
 

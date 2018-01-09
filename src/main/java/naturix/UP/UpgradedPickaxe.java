@@ -204,42 +204,74 @@ after the cause of action arose. Each party waives its rights to a jury trial in
 any resulting litigation.
 
 */
-package naturix.TDK.items;
+package naturix.UP;
 
-import naturix.TDK.ThousandDegreeKnifeMod;
-import naturix.TDK.registry.ModItems;
-import naturix.TDK.registry.TileEntityCustom;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import naturix.UP.proxy.CommonProxy;
+import naturix.UP.registry.ModItems;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class IronKnife extends ItemSword {
+@Mod(modid = UpgradedPickaxe.MODID, version = UpgradedPickaxe.VERSION, name = UpgradedPickaxe.MOD_NAME)
+public class UpgradedPickaxe
+{
+	public static final String MODID = "upgradedpickaxe";
+    public static final String VERSION = "1.12.2.0";
+    public static final String MOD_NAME = "Upgraded Pickaxe";
+    
+    @SidedProxy(clientSide = "naturix.UP.proxy.ClientProxy", serverSide = "naturix.UP.proxy.ServerProxy")
+    public static CommonProxy proxy;
+    public static final Item.ToolMaterial WoodMaterial = EnumHelper.addToolMaterial("Wood", 99, 6142, 321, 844, 50);
+    public static final Item.ToolMaterial GoldMaterial = EnumHelper.addToolMaterial("Gold", 99, 6142, 321, 844, 50);
+    public static final Item.ToolMaterial StoneMaterial = EnumHelper.addToolMaterial("Stone", 99, 6142, 321, 844, 50);
+    public static final Item.ToolMaterial IronMaterial = EnumHelper.addToolMaterial("Iron", 99, 6142, 321, 844, 50);
+    public static final Item.ToolMaterial DiamondMaterial = EnumHelper.addToolMaterial("Diamond", 99, 6142, 321, 844, 50);
+    
+    @Mod.Instance
+    public static UpgradedPickaxe instance;
 
-    public IronKnife() {
-    	super(ToolMaterial.IRON);
-        this.setRegistryName("ironknife");
-        this.setUnlocalizedName(ThousandDegreeKnifeMod.MODID + ".ironknife");
-        setCreativeTab(ThousandDegreeKnifeMod.ThousandDegreeKnifeMod);
-        setMaxStackSize(1);
-        setMaxDamage(13000001);
-        setHarvestLevel(getUnlocalizedName(), 1);
-        getItemEnchantability();
-    }
-    @SideOnly(Side.CLIENT)
-    public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    public static org.apache.logging.log4j.Logger logger;
+    
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        logger = event.getModLog();
+        proxy.preInit(event);
     }
 
-	}
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent e) {
+        proxy.init(e);
+    }
+
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent e) {
+        proxy.postInit(e);
+    }
+    
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent event) {
+
+    }
+    
+    public static final CreativeTabs UpgradedPickTab = new CreativeTabs("UpgradedPickTab")
+    {
+
+        @SideOnly(Side.CLIENT)
+        public ItemStack getTabIconItem()
+        {
+            return new ItemStack(Items.DIAMOND_PICKAXE);
+        }
+		
+    };
+}
