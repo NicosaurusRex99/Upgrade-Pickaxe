@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "YYY",
+	"YXY",
+	" X "
+  ],
+  "key": {
+    "Y": {
+        "item": "minecraft:diamond"
+    },
+	"X": {
+        "item": "upgradedpickaxe:stick"
+    }
+  },
+  "result": {
+    "item": "upgradedpickaxe:diamond"
+  }
+}

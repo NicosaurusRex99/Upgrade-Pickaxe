@@ -1,0 +1,17 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"YXY"
+	],
+  "key": {
+    "Y": {
+        "item": "minecraft:stick"
+    },
+	"X": {
+        "item": "minecraft:string"
+    }
+  },
+	"result": {
+		"item": "upgradedpickaxe:stick"
+	}
+}

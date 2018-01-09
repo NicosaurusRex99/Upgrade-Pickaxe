@@ -1,0 +1,20 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"III",
+		"IXI",
+		" X "
+	],
+	"key": {
+		"I": {
+			"type": "forge:ore_dict",
+			"ore": "plankWood"
+		},
+		"X": {
+		"item": "upgradedpickaxe:stick"
+		}
+	},
+	"result": {
+		"item": "upgradedpickaxe:wood"
+	}
+}
