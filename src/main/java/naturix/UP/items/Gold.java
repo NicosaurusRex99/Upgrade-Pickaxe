@@ -221,7 +221,7 @@ public class Gold extends ItemPickaxe {
         this.setUnlocalizedName(UpgradedPickaxe.MODID + ".gold");
         setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
         setMaxStackSize(1);
-        setMaxDamage(13000001);
+        setMaxDamage(200);
         setHarvestLevel("pickaxe", 2);
     }
     @SideOnly(Side.CLIENT)

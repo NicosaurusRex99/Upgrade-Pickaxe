@@ -208,6 +208,7 @@ package naturix.UP.items;
 
 import naturix.UP.UpgradedPickaxe;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -221,7 +222,7 @@ public class Diamond extends ItemPickaxe {
         this.setUnlocalizedName(UpgradedPickaxe.MODID + ".diamond");
         setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
         setMaxStackSize(1);
-        setMaxDamage(13000001);
+        setMaxDamage(6142);
         setHarvestLevel("pickaxe", 5);
     }
     @SideOnly(Side.CLIENT)

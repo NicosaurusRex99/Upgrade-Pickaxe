@@ -231,11 +231,11 @@ public class UpgradedPickaxe
     
     @SidedProxy(clientSide = "naturix.UP.proxy.ClientProxy", serverSide = "naturix.UP.proxy.ServerProxy")
     public static CommonProxy proxy;
-    public static final Item.ToolMaterial WoodMaterial = EnumHelper.addToolMaterial("Wood", 99, 6142, 321, 844, 50);
-    public static final Item.ToolMaterial GoldMaterial = EnumHelper.addToolMaterial("Gold", 99, 6142, 321, 844, 50);
-    public static final Item.ToolMaterial StoneMaterial = EnumHelper.addToolMaterial("Stone", 99, 6142, 321, 844, 50);
-    public static final Item.ToolMaterial IronMaterial = EnumHelper.addToolMaterial("Iron", 99, 6142, 321, 844, 50);
-    public static final Item.ToolMaterial DiamondMaterial = EnumHelper.addToolMaterial("Diamond", 99, 6142, 321, 844, 50);
+    public static final Item.ToolMaterial WoodMaterial = EnumHelper.addToolMaterial("Wood", 2, 250, 6.0F, 1.0F, 14);
+    public static final Item.ToolMaterial GoldMaterial = EnumHelper.addToolMaterial("Gold", 3, 200, 8.0F, 1.0F, 50);
+    public static final Item.ToolMaterial StoneMaterial = EnumHelper.addToolMaterial("Stone", 3, 405, 8.0F, 2.0F, 50);
+    public static final Item.ToolMaterial IronMaterial = EnumHelper.addToolMaterial("Iron", 4, 1590, 10.0F, 4.0F, 50);
+    public static final Item.ToolMaterial DiamondMaterial = EnumHelper.addToolMaterial("Diamond", 5, 6142, 14.0F, 5.0F, 50);
     
     @Mod.Instance
     public static UpgradedPickaxe instance;
@@ -270,7 +270,7 @@ public class UpgradedPickaxe
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem()
         {
-            return new ItemStack(Items.DIAMOND_PICKAXE);
+            return new ItemStack(ModItems.diamond);
         }
 		
     };

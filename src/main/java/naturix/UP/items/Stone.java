@@ -221,7 +221,7 @@ public class Stone extends ItemPickaxe {
         this.setUnlocalizedName(UpgradedPickaxe.MODID + ".stone");
         setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
         setMaxStackSize(1);
-        setMaxDamage(13000001);
+        setMaxDamage(405);
         setHarvestLevel("pickaxe", 2);
     }
     @SideOnly(Side.CLIENT)

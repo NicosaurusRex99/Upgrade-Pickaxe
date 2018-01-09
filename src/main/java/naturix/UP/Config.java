@@ -211,7 +211,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 	private static final String CATEGORY_GENERAL = "General";
-
+	public static boolean fancyModel;
 	
 	public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -227,5 +227,6 @@ public class Config {
     }
 	 private static void initGeneralConfig(Configuration cfg) {
 	        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
+	        fancyModel= cfg.getBoolean("Fancy Model", CATEGORY_GENERAL, false, "set to true for fancy model");
 	        	 }
 }

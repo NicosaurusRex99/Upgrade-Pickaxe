@@ -221,7 +221,7 @@ public class Iron extends ItemPickaxe {
         this.setUnlocalizedName(UpgradedPickaxe.MODID + ".iron");
         setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
         setMaxStackSize(1);
-        setMaxDamage(13000001);
+        setMaxDamage(1590);
         setHarvestLevel("pickaxe", 4);
     }
     @SideOnly(Side.CLIENT)

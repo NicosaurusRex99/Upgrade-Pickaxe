@@ -221,7 +221,7 @@ public class Wood extends ItemPickaxe {
         this.setUnlocalizedName(UpgradedPickaxe.MODID + ".wood");
         setCreativeTab(UpgradedPickaxe.UpgradedPickTab);
         setMaxStackSize(1);
-        setMaxDamage(13000001);
+        setMaxDamage(250);
         setHarvestLevel("pickaxe", 1);
     }
     @SideOnly(Side.CLIENT)

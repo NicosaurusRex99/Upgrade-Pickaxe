@@ -1,5 +1,6 @@
 package naturix.UP.items;
 
+import naturix.UP.Config;
 import naturix.UP.UpgradedPickaxe;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
@@ -20,5 +21,5 @@ public class DoubleEndedStick extends Item {
 	@SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-    }
+		}
 }
