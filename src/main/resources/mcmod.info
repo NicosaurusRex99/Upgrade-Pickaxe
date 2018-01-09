@@ -1,0 +1,16 @@
+[
+{
+  "modid": "upgradedpickaxe",
+  "name": "Upgraded Pickaxe",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Hawaii_Beach, NicosaurusRex99"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
