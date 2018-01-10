@@ -5,3 +5,4 @@ item.upgradedpickaxe.gold.name=Upgraded Gold Pickaxe
 item.upgradedpickaxe.stone.name=Upgraded Stone Pickaxe
 item.upgradedpickaxe.wood.name=Upgraded Wood Pickaxe
 item.upgradedpickaxe.stick.name=Double Ended Stick
+message.upgradedpickaxe.counter_par=Counter: %d

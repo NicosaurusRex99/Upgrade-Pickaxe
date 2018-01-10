@@ -208,9 +208,14 @@ package naturix.UP.proxy;
 
 import java.io.File;
 
-import naturix.UP.items.*;
 import naturix.UP.Config;
 import naturix.UP.FurnaceRecipes;
+import naturix.UP.items.Diamond;
+import naturix.UP.items.DoubleEndedStick;
+import naturix.UP.items.Gold;
+import naturix.UP.items.Iron;
+import naturix.UP.items.Stone;
+import naturix.UP.items.Wood;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -255,7 +260,7 @@ public class CommonProxy {
 		
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-
+    	
     }
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -265,6 +270,6 @@ public class CommonProxy {
     	event.getRegistry().register(new Wood());
     	event.getRegistry().register(new Stone());
     	event.getRegistry().register(new DoubleEndedStick());
-    }
+    	}
 
 }
